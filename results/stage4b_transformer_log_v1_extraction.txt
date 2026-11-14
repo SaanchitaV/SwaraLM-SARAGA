@@ -1,0 +1,66 @@
+Loaded 176 recordings. Device: cpu
+Held-out validation artists: ['Kanakadurga Venkatesh', 'Mahati', 'S Sundar']
+Train windows: 45489   Val windows (held-out artists): 8599
+/tmp/ipykernel_3953/3814999353.py:129: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.norm_first was True
+  self.enc = nn.TransformerEncoder(layer, num_layers=N_LAYERS)
+epoch 01  train_loss=1.562  val_loss(held-out artists)=1.407  ppl=4.08
+epoch 02  train_loss=1.475  val_loss(held-out artists)=1.401  ppl=4.06
+epoch 03  train_loss=1.465  val_loss(held-out artists)=1.398  ppl=4.05
+epoch 04  train_loss=1.460  val_loss(held-out artists)=1.395  ppl=4.03
+epoch 05  train_loss=1.457  val_loss(held-out artists)=1.394  ppl=4.03
+epoch 06  train_loss=1.455  val_loss(held-out artists)=1.392  ppl=4.02
+epoch 07  train_loss=1.454  val_loss(held-out artists)=1.391  ppl=4.02
+epoch 08  train_loss=1.453  val_loss(held-out artists)=1.389  ppl=4.01
+epoch 09  train_loss=1.452  val_loss(held-out artists)=1.387  ppl=4.00
+epoch 10  train_loss=1.451  val_loss(held-out artists)=1.387  ppl=4.00
+epoch 11  train_loss=1.450  val_loss(held-out artists)=1.387  ppl=4.00
+epoch 12  train_loss=1.449  val_loss(held-out artists)=1.385  ppl=3.99
+epoch 13  train_loss=1.448  val_loss(held-out artists)=1.385  ppl=3.99
+epoch 14  train_loss=1.447  val_loss(held-out artists)=1.383  ppl=3.99
+epoch 15  train_loss=1.446  val_loss(held-out artists)=1.380  ppl=3.98
+epoch 16  train_loss=1.445  val_loss(held-out artists)=1.380  ppl=3.97
+epoch 17  train_loss=1.445  val_loss(held-out artists)=1.379  ppl=3.97
+epoch 18  train_loss=1.444  val_loss(held-out artists)=1.378  ppl=3.97
+epoch 19  train_loss=1.443  val_loss(held-out artists)=1.377  ppl=3.96
+epoch 20  train_loss=1.443  val_loss(held-out artists)=1.378  ppl=3.97
+epoch 21  train_loss=1.442  val_loss(held-out artists)=1.377  ppl=3.96
+epoch 22  train_loss=1.442  val_loss(held-out artists)=1.376  ppl=3.96
+epoch 23  train_loss=1.441  val_loss(held-out artists)=1.375  ppl=3.96
+epoch 24  train_loss=1.441  val_loss(held-out artists)=1.373  ppl=3.95
+epoch 25  train_loss=1.440  val_loss(held-out artists)=1.373  ppl=3.95
+epoch 26  train_loss=1.440  val_loss(held-out artists)=1.371  ppl=3.94
+epoch 27  train_loss=1.439  val_loss(held-out artists)=1.372  ppl=3.94
+epoch 28  train_loss=1.439  val_loss(held-out artists)=1.370  ppl=3.94
+epoch 29  train_loss=1.438  val_loss(held-out artists)=1.369  ppl=3.93
+epoch 30  train_loss=1.438  val_loss(held-out artists)=1.369  ppl=3.93
+epoch 31  train_loss=1.437  val_loss(held-out artists)=1.367  ppl=3.92
+epoch 32  train_loss=1.436  val_loss(held-out artists)=1.368  ppl=3.93
+epoch 33  train_loss=1.436  val_loss(held-out artists)=1.367  ppl=3.92
+epoch 34  train_loss=1.436  val_loss(held-out artists)=1.367  ppl=3.92
+epoch 35  train_loss=1.435  val_loss(held-out artists)=1.366  ppl=3.92
+epoch 36  train_loss=1.435  val_loss(held-out artists)=1.365  ppl=3.91
+epoch 37  train_loss=1.435  val_loss(held-out artists)=1.367  ppl=3.92
+epoch 38  train_loss=1.435  val_loss(held-out artists)=1.364  ppl=3.91
+epoch 39  train_loss=1.434  val_loss(held-out artists)=1.366  ppl=3.92
+epoch 40  train_loss=1.434  val_loss(held-out artists)=1.364  ppl=3.91
+epoch 41  train_loss=1.434  val_loss(held-out artists)=1.363  ppl=3.91
+epoch 42  train_loss=1.434  val_loss(held-out artists)=1.364  ppl=3.91
+epoch 43  train_loss=1.434  val_loss(held-out artists)=1.364  ppl=3.91
+epoch 44  train_loss=1.434  val_loss(held-out artists)=1.363  ppl=3.91
+epoch 45  train_loss=1.433  val_loss(held-out artists)=1.363  ppl=3.91
+epoch 46  train_loss=1.433  val_loss(held-out artists)=1.362  ppl=3.90
+epoch 47  train_loss=1.433  val_loss(held-out artists)=1.363  ppl=3.91
+epoch 48  train_loss=1.433  val_loss(held-out artists)=1.363  ppl=3.91
+epoch 49  train_loss=1.433  val_loss(held-out artists)=1.362  ppl=3.90
+epoch 50  train_loss=1.432  val_loss(held-out artists)=1.362  ppl=3.90
+epoch 51  train_loss=1.432  val_loss(held-out artists)=1.362  ppl=3.90
+epoch 52  train_loss=1.432  val_loss(held-out artists)=1.362  ppl=3.90
+Early stop at epoch 52.
+Best held-out-artist val loss: 1.362 (ppl 3.90)
+
+=== Retrieval with Transformer-LM embeddings ===
+          representation  evaluable_queries   P@1   P@3   P@5  MAP   MRR
+transformer_lm_embedding                123 0.154 0.125 0.109 0.18 0.277
+
+Comparison: bag_of_notes=0.423, transitions=0.431, lstm_lm=0.179 (P@1)
+Saved -> /content/census_out

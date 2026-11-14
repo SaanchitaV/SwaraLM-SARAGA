@@ -1,0 +1,6 @@
+representation,P@1_high_overlap(allied),P@1_low_overlap
+bag_of_notes,0.412,0.75
+transition_matrix,0.412,1.0
+lstm_lm,0.378,1.0
+transformer_lm,0.269,0.5
+contrastive,0.403,1.0

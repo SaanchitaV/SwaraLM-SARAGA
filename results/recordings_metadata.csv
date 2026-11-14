@@ -1,0 +1,198 @@
+track_id,title,raga,raga_key,artist,lead_instrument,concert,form,taala,has_tonic,has_pitch,has_pitch_vocal,has_phrases,has_sections,has_mp3
+carnatic/58,Geetha Vaadya Natana,Natakapriya,natakapriya,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/27,Chalamelara Saketha Rama,Margahindolam,margahindolam,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/118,Neevada Negana,Saranga,saranga,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Khanda chapu,True,True,False,False,False,True
+carnatic/15,Paarengum,Kalyani,kalyani,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/44,Ardhanarishwaram,Kumudakriya,kumudakriya,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/11,Ennadu Jootuno,Kalavati,kalavati,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Adi,True,True,False,True,True,True
+carnatic/175,Marubari,Kamas,kamas,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Javali,Adi,True,True,True,True,True,True
+carnatic/78,Shlokham,UNKNOWN,unknown,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Shloka,UNKNOWN,True,True,False,False,False,True
+carnatic/167,Pavamana Suthudu,Saurastram,saurastram,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Mangalam,Adi,True,True,False,True,True,True
+carnatic/139,Mangalam Kosalendraya,Surati,surati,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Mangalam,UNKNOWN,True,True,True,True,True,True
+carnatic/69,Sapasyat Kausalya,Jonpuri,jonpuri,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/13,Sri Raghuvara Sugunaalaya,Bhairavi,bhairavi,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Adi,True,True,False,True,True,True
+carnatic/4,Tulasi Bilva,Kedaragaula,kedaragaula,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/129,Nenindal Agaadadu undo,Jonpuri,jonpuri,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/144,Govardhana Girisham,Hindolam,hindolam,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/22,Sama geeta priyan,Gaula,gaula,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/64,Seetapati Namanasuna,Kamas,kamas,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/116,Etulabrotuva,Cakravakam,cakravakam,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Misra chapu,True,True,False,False,False,True
+carnatic/54,Sudhaamayee,Amrtavarsini,amrtavarsini,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/7,Idhu Thaano Thillai Sthalam,Behag,behag,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/162,Raagam Thaanam Pallavi,Kapi,kapi,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Pallavi,Adi,True,True,False,True,True,True
+carnatic/148,Kari Kalabha Mukham,Saveri,saveri,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/50,Tillana,UNKNOWN,unknown,KP Nandini,Voice,KP Nandini at Arkay,Thillana,Adi,True,True,True,True,True,True
+carnatic/43,Parvathi Ninnu Neranammiti,Kalgada,kalgada,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/41,Endaro Mahanubhavulu,Sri,sri,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/186,Niraimadi Mugam Thiruppugazh,Hamsanandi,hamsanandi,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Thiruppugazh,Adi,True,True,False,True,True,True
+carnatic/113,Tillana,Dvijavanti,dvijavanti,Mahati,Voice,Mahati at Arkay,Thillana,Adi,True,True,False,False,False,True
+carnatic/115,Rama Neepai,Kedaram,kedaram,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/48,Janakipathe Jaya Karunya Jaladhe,Karaharapriya,karaharapriya,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/149,Kaalaharanamelara,Suddadhanyasi,suddadhanyasi,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/169,Eranapai,Todi,todi,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/31,Innamum Oru thalam,Behag,behag,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/146,Gange Maampahi,UNKNOWN,unknown,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Khanda-jati eka,True,True,False,False,False,True
+carnatic/114,Pavamana Suttudu Pattu,Saurastram,saurastram,Mahati,Voice,Mahati at Arkay,Mangalam,Adi,True,True,False,False,False,True
+carnatic/77,Munnu Ravana,Todi,todi,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,Misra-jati jhampe,True,True,False,False,False,True
+carnatic/165,Payum Oli Nee Yenakku,Kamas,kamas,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/124,Santhamu leka Sowkyamu ledu,Sama,sama,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/32,Oorilen Kaani Illai,Behag,behag,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Viruttham,Adi,True,True,False,True,True,True
+carnatic/0,Varashiki Vahana,UNKNOWN,unknown,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/138,Va Va Brindavana,Sindhubhairavi,sindhubhairavi,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,Khanda-jati eka,True,True,True,True,True,True
+carnatic/98,Koluvaiyunnade,Devagandhari,devagandhari,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/65,Emani Migula,Todi,todi,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/192,Ardhanareeshwaram,Kumudakriya,kumudakriya,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Rupaka,True,True,True,True,True,True
+carnatic/82,Siddhi Vinayakam,Sanmukhapriya,sanmukhapriya,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/88,Manadirkkugandhadu,Sindhubhairavi,sindhubhairavi,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Adi,True,True,False,True,True,True
+carnatic/67,Saraguna Palimpa,Kedaragaula,kedaragaula,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/172,Angakaram,Surati,surati,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/131,Sri Vidhya Rajagopala,Jaganmohini,jaganmohini,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,Tisra-jati eka,True,True,True,True,True,True
+carnatic/102,Rama Namam Bhajare,Madhyamavati,madhyamavati,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/8,Shlokam - Shivah Shaktyayukto,Madhyamavati,madhyamavati,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Shloka,UNKNOWN,True,True,True,True,True,True
+carnatic/174,Evarura,Mohanam,mohanam,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Kriti,Misra chapu,True,True,True,True,True,True
+carnatic/12,Aru marundu,Kambhoji,kambhoji,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/68,Madhava Mamava,Nilambari,nilambari,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/55,Jaya Jaya Padmanabhanujese,Manirangu,manirangu,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/17,Saravanabhava Enum,Sanmukhapriya,sanmukhapriya,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Adi,True,True,False,True,True,True
+carnatic/16,Ragam Thanam Pallavi - Shanmukhapriya,Sanmukhapriya,sanmukhapriya,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Pallavi,Misra chapu,True,True,False,True,True,True
+carnatic/61,Kannanai Paadu Maname,Kalyani,kalyani,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/103,Ghandhamu Poyyaruga,Punnagavarali,punnagavarali,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/14,Sarasadalanayana,Kamas,kamas,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Caturasra-jati jhampe,True,True,False,True,True,True
+carnatic/135,Sri Guru Na Palitosmi,Padi,padi,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/80,Avani Sutha,Nadanamakriya,nadanamakriya,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Mangalam,Adi,True,True,False,False,False,True
+carnatic/185,Vitthala Salaho Swamy,Des,des,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,UNKNOWN,Adi,True,True,False,True,True,True
+carnatic/10,Pullum Silambena Kan,Sankarabharanam,sankarabharanam,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Misra chapu,True,True,False,True,True,True
+carnatic/90,Pavamana Suthudu Mangalam,Saurastram,saurastram,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Mangalam,Adi,True,True,False,True,True,True
+carnatic/133,Ramabhi Rama Manasu,Dhanyasi,dhanyasi,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/1,Bhuvini Dasudane,Sriranjani,sriranjani,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/119,Enthavedukonthu Raghava,Sarasvati manohari,sarasvati manohari,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/97,Entha Muddo,UNKNOWN,unknown,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/187,Pavamana Suthudu Mangalam,Saurastram,saurastram,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Mangalam,Adi,True,True,False,True,True,True
+carnatic/9,Eranapai,Todi,todi,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Varnam - Tana Varnam,Adi,True,True,False,True,True,True
+carnatic/84,Apparama Bhakti,Kamavardani/Pantuvarali,kamavardani/pantuvarali,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/156,Undan Paada Pankayam,Sankarabharanam,sankarabharanam,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Varnam - Tana Varnam,Atta,True,True,False,True,True,True
+carnatic/195,Muruga Muruga Muruga,Ragamalika,ragamalika,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/96,Paraloka Bhaya,Mandari,mandari,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/145,Shri Subramanyaya Namaste,Kambhoji,kambhoji,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Tisra-jati eka,True,True,False,False,False,True
+carnatic/81,Karunimpa Idi,Sahana,sahana,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Varnam - Tana Varnam,Adi,True,True,False,True,True,True
+carnatic/19,Maname Kanamum,Karnataka devagandhari,karnataka devagandhari,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Adi,True,True,False,True,True,True
+carnatic/30,Uppum karpuramum,Kanada,kanada,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Viruttham,Adi,True,True,False,True,True,True
+carnatic/70,Thillana Senchurutti,Sencurutti,sencurutti,Rithvik Raja,Voice,Rithvik Raja at Arkay,Thillana,Desadi,True,True,True,True,True,True
+carnatic/99,Eramuni,Vakulabharanam,vakulabharanam,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Misra chapu,True,True,False,False,False,True
+carnatic/79,Ni Ninaindhal Aagadhadhu,Jonpuri,jonpuri,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/170,Samajavarada,Sudda saveri,sudda saveri,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/105,Sharanagatha Vatsale,Kathanakutuhalam,kathanakutuhalam,Mahati,Voice,Mahati at Arkay,Varnam - Tana Varnam,Adi,True,True,False,False,False,True
+carnatic/46,Manasaramathi,Saramati,saramati,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/83,Koti Janmani,Ritigaula,ritigaula,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Misra chapu,True,True,False,True,True,True
+carnatic/110,Vandu Ketpaar Illayo,Ragamalika,ragamalika,Mahati,Voice,Mahati at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/159,Entara Nitana,Harikambhoji,harikambhoji,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/72,Sri Jalandara,Gambhira nata,gambhira nata,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/86,Shankari Shankuru,Saveri,saveri,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Adi,True,True,False,True,True,True
+carnatic/163,Maname Ramanai Paada,Sindhubhairavi,sindhubhairavi,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Misra chapu,True,True,False,True,True,True
+carnatic/104,Mangalam Avanisutanatha,Nadanamakriya,nadanamakriya,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Mangalam,Adi,True,True,False,False,False,True
+carnatic/190,Ninne Bhajana,Nata,nata,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/125,Sri Dundurge Siva Samsaare,Sriranjani,sriranjani,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,Khanda-jati eka,True,True,False,False,False,True
+carnatic/152,Gange Maam Pahi,UNKNOWN,unknown,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Kriti,Khanda-jati eka,True,True,False,False,False,True
+carnatic/132,Karuninchutakidi,Sindhumandari,sindhumandari,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/160,Soundararajam,Brndavana saranga,brndavana saranga,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Tisra-jati eka,True,True,False,True,True,True
+carnatic/154,Vasudeva Sutam Devam,UNKNOWN,unknown,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Shloka,UNKNOWN,True,True,False,False,False,True
+carnatic/25,Deenarakshaka,Ahiri,ahiri,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/34,Ramakrishnaru Manaegae,Tillang,tillang,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Misra chapu,True,True,False,True,True,True
+carnatic/121,Vara Leela Gana Lola,Sankarabharanam,sankarabharanam,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/87,Geeta Nayakan,Ragamalika,ragamalika,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Adi,True,True,False,True,True,True
+carnatic/117,Lokavana Chatura,Begada,begada,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/91,Giriraja Suta,UNKNOWN,unknown,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/92,Dudukugala,Gaula,gaula,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/73,Chandrashekharam Sada Bhajeham,Margahindolam,margahindolam,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/36,Ninnaiye rathi,Bagesri,bagesri,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/143,Anandaamrutakarshini,Amrtavarsini,amrtavarsini,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/5,Rama Rama Guna Seema,Simhendra madhyamam,simhendra madhyamam,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/56,Enadhu Manam Kavalai,Harikambhoji,harikambhoji,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/182,Amba Kamakshi,Bhairavi,bhairavi,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,UNKNOWN,Misra chapu,True,True,False,True,True,True
+carnatic/35,Teerthakarayinile,UNKNOWN,unknown,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Viruttham,UNKNOWN,True,True,False,True,True,True
+carnatic/20,Pavamaana Suthudu Pattu,Saurastram,saurastram,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Kriti,Adi,True,True,False,True,True,True
+carnatic/193,Chakkani Raja,Karaharapriya,karaharapriya,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/62,Devadi Devanukku Jaya Mangalam,Surati,surati,S Sundar,Voice,Dr S Sundar at Arkay,Mangalam,Khanda chapu,True,True,False,False,False,True
+carnatic/120,Koluvamaregatha,Todi,todi,Kanakadurga Venkatesh,Voice,Kanakadurga Venkatesh at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/101,Sundari Nee Divya,Kalyani,kalyani,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/100,Telisi Rama,Purnacandrika,purnacandrika,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/122,Sarasuda Ninne Kori,Saveri,saveri,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Varnam - Tana Varnam,Adi,True,True,False,False,False,True
+carnatic/39,Nadatanum Anisham,Cittaranjani,cittaranjani,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/71,Ramachandraya Mangalam,Navroj,navroj,Rithvik Raja,Voice,Rithvik Raja at Arkay,Mangalam,Adi,True,True,True,True,True,True
+carnatic/89,Thillana Pahadi,Pahadi,pahadi,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Thillana,Adi,True,True,False,True,True,True
+carnatic/137,Aaniraimekkani,Ragamalika,ragamalika,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,UNKNOWN,True,True,True,True,True,True
+carnatic/161,Ozhukkam Uyirinum,Kuntalavarali,kuntalavarali,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/75,Pranamamyaham Sri Prananatham,Ranjani,ranjani,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,UNKNOWN,True,True,False,False,False,True
+carnatic/127,Parvathi Ninu Ne Nera Nammithi,Kalgada,kalgada,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/153,Thappi Bratikipova,Todi,todi,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/51,Nannu Brova Neeku,Abhogi,abhogi,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/147,Mamava Pattabhi Rama,Manirangu,manirangu,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Misra chapu,True,True,False,False,False,True
+carnatic/28,O Rangashayee,Kambhoji,kambhoji,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/63,Chintayama Kanda,Bhairavi,bhairavi,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/26,Va vela va,Tanarupi,tanarupi,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Khanda chapu,True,True,False,True,True,True
+carnatic/24,Janani,Ritigaula,ritigaula,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Misra chapu,True,True,False,True,True,True
+carnatic/130,Vanajaksha Ninne Kori,Ritigaula,ritigaula,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Varnam - Tana Varnam,Atta,True,True,True,True,True,True
+carnatic/183,Sanchara Dhadhara,Ragamalika,ragamalika,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,UNKNOWN,Adi,True,True,False,True,True,True
+carnatic/109,Ragam Tanam Pallavi,Sanmukhapriya,sanmukhapriya,Mahati,Voice,Mahati at Arkay,Pallavi,Adi,True,True,False,False,False,True
+carnatic/37,Kalilo Hari Smrana,Kapi,kapi,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/151,Arul Seya Vendum Ayya,Rasikapriya,rasikapriya,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/194,Chenduril Nindradum Kanda,Mandu,mandu,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/74,Ninnuvina Marigalada,Ritigaula,ritigaula,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/178,Karuna Ela Gante,Varali,varali,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Kriti,Adi,True,True,False,True,True,True
+carnatic/111,Gopi Gopala Bala,UNKNOWN,unknown,Mahati,Voice,Mahati at Arkay,Bhajan,Adi,True,True,False,False,False,True
+carnatic/158,Kamakshi,Bhairavi,bhairavi,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Misra chapu,True,True,False,True,True,True
+carnatic/42,Vanajaksha Ninne Nammiti,Behag,behag,S Sundar,Voice,Dr S Sundar at Arkay,Varnam - Tana Varnam,Adi,True,True,False,False,False,True
+carnatic/180,Hiranmayeem Lakshmeem,Lalita,lalita,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/95,Paramatmudu,Vagadisvari,vagadisvari,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/18,Karuvutranaal Mudalaaga,Ragamalika,ragamalika,Sanjay Subrahmanyan,Voice,Live at Vani Mahal,Viruttham,UNKNOWN,True,True,False,True,True,True
+carnatic/76,Amba Nilambari,Nilambari,nilambari,Vasundara Rajagopal,Voice,Vasundara Rajagopal at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/173,Parama Purusham,Lalita pancamam,lalita pancamam,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Kriti,Khanda chapu,True,True,True,True,True,True
+carnatic/106,Hiranmayeem,Lalita,lalita,Mahati,Voice,Mahati at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/184,Idhuthaano Thillai Sthalam,Behag,behag,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Kriti,Adi,True,True,False,True,True,True
+carnatic/157,Shatre Vilagi Irum,Purvikalyani,purvikalyani,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Kriti,Rupaka,True,True,False,True,True,True
+carnatic/134,Thoomani Madatthu,Hamir kalyani,hamir kalyani,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Thiruppavai,Adi,True,True,True,True,True,True
+carnatic/188,Shloka,Mohanam,mohanam,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,UNKNOWN,True,True,True,False,True,True
+carnatic/85,Brova Barama,Bahudari,bahudari,Akkarai Subhalakshmi,Voice,Akkarai Sisters at Arkay,Kriti,Adi,True,True,False,True,True,True
+carnatic/177,Evvari Bodhana,Abhogi,abhogi,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,UNKNOWN,Adi,True,True,False,True,True,True
+carnatic/93,Edari Sancharintura,UNKNOWN,unknown,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/38,Mangalam,Saurastram,saurastram,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Mangalam,Adi,True,True,False,True,True,True
+carnatic/164,Teerthakarayinile,Kamas,kamas,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Viruttham,UNKNOWN,True,True,False,True,True,True
+carnatic/2,Velum Mayilume,Sucaritra,sucaritra,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/60,Nera Nammiti,Ragamalika,ragamalika,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/40,Karunimpa Idi,Sahana,sahana,Rithvik Raja,Voice,Rithvik Raja at Arkay,Varnam - Tana Varnam,Adi,True,True,True,True,True,True
+carnatic/176,Thillana Purnachandrika,Purnacandrika,purnacandrika,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Thillana,Adi,True,True,True,True,True,True
+carnatic/49,Eppadi Padinaro,Karnataka devagandhari,karnataka devagandhari,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/179,Lokavana Chatura,Begada,begada,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Kriti,Adi,True,True,False,True,True,True
+carnatic/142,Kamalamba Samrakshatu,Anandabhairavi,anandabhairavi,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Misra chapu,True,True,False,False,False,True
+carnatic/107,Kannallavo Swami,Surati,surati,Mahati,Voice,Mahati at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/126,Gnanamosaga Rada,Gamakakriya,gamakakriya,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/47,Seethamma,Vasanta,vasanta,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Rupaka,True,True,True,True,True,True
+carnatic/150,Brochevarevarura,Kamas,kamas,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/128,Nee Sari evvaramma,Bhairavi,bhairavi,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,UNKNOWN,True,True,False,False,False,True
+carnatic/140,Rakta Ganapatim,Mohanam,mohanam,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/136,Mati Matiki,Mohanam,mohanam,Sumithra Vasudev,Voice,Sumitra Vasudev at Arkay,Kriti,Misra chapu,True,True,True,True,True,True
+carnatic/171,Aparadhamula,Latangi,latangi,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/166,Thillana Dhanashri,Dhanasri,dhanasri,Sanjay Subrahmanyan,Voice,Live at Kamarajar Hall,Thillana,Adi,True,True,False,False,True,True
+carnatic/29,Ganta mani aadudhu,Kanada,kanada,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/123,Jaya Jaya Janaki Kantha,Nata,nata,Srividya Janakiraman,Voice,Srividya Janakiraman at Arkay,Kriti,Khanda chapu,True,True,False,False,False,True
+carnatic/33,Karupuram Naarumo,Kamas,kamas,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Khanda chapu,True,True,False,True,True,True
+carnatic/168,Sadabalarupapi Shlokam,Hamsadhvani,hamsadhvani,Ashwath Narayanan,Voice,Ashwath Narayanan at Arkay,UNKNOWN,UNKNOWN,True,True,True,True,True,True
+carnatic/94,Shobillu Saptasvara,Jaganmohini,jaganmohini,Modhumudi Sudhakar,Voice,Modhumudi Sudhakar at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/191,Dinamani Vamsa,Harikambhoji,harikambhoji,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/6,Prathi Vaaram Vaaram,Padi,padi,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/23,Nadopasana,Begada,begada,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Kriti,Adi,True,True,False,True,True,True
+carnatic/112,Chinnanchiru Kiliye,Ragamalika,ragamalika,Mahati,Voice,Mahati at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/57,Purahara Nandana,Hamir kalyani,hamir kalyani,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/59,Shloka Namaste Sarvalokana,UNKNOWN,unknown,S Sundar,Voice,Dr S Sundar at Arkay,Shloka,UNKNOWN,True,True,False,False,False,True
+carnatic/21,Vanajakshi - Varnam,Kalyani,kalyani,Sanjay Subrahmanyan,Voice,Sanjay at Sastri Hall,Varnam - Tana Varnam,Atta,True,True,False,True,True,True
+carnatic/141,Ardhanareeshwaram,UNKNOWN,unknown,Chaitra Sairam,Voice,Chaitra Sairam at Arkay,Kriti,Rupaka,True,True,False,False,False,True
+carnatic/45,Bhavamulona,Suddadhanyasi,suddadhanyasi,KP Nandini,Voice,KP Nandini at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/52,Paahi Maam Sri,Janaranjani,janaranjani,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/3,Karuna Nidhi Illalo,Todi,todi,Cherthala Ranganatha Sharma,Voice,Cherthala Ranganatha Sharma at Arkay,Kriti,Adi,True,True,True,True,True,True
+carnatic/53,Eppadi Manam Thunindhadho,Husseni,husseni,S Sundar,Voice,Dr S Sundar at Arkay,Kriti,Misra chapu,True,True,False,False,False,True
+carnatic/181,Gopanandana,Bhusavali,bhusavali,Vignesh Ishwar,Voice,Vignesh Ishwar at Nada Inbam,Kriti,Adi,True,True,False,True,True,True
+carnatic/155,Krishna Nee Begane Baaro,Yamuna kalyani,yamuna kalyani,Kuldeep Pai,Voice,Kuldeep Pai at Arkay,Keertana (Devara nama),Misra chapu,True,True,False,False,False,True
+carnatic/189,Nera Nammiti,Kanada,kanada,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Atta,True,True,True,True,True,True
+carnatic/196,Pavamana Suthudu Pattu,Saurastram,saurastram,V. Shankaranarayanan,Voice,V Shankarnarayanan at Arkay,UNKNOWN,Adi,True,True,True,True,True,True
+carnatic/108,Padavini,Salaga bhairavi,salaga bhairavi,Mahati,Voice,Mahati at Arkay,Kriti,Adi,True,True,False,False,False,True
+carnatic/66,Bhogeendra Shayinam,Kuntalavarali,kuntalavarali,Rithvik Raja,Voice,Rithvik Raja at Arkay,Kriti,Khanda chapu,True,True,True,True,True,True

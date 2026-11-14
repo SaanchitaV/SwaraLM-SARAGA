@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+census_out/
+saraga_carnatic/
+*.mp3
+*.wav

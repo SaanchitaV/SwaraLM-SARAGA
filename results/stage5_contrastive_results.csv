@@ -1,0 +1,2 @@
+representation,evaluable_queries,P@1,P@3,P@5,MAP,MRR
+contrastive_lstm_embedding,123,0.423,0.298,0.237,0.415,0.524

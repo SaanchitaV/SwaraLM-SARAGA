@@ -1,0 +1,15 @@
+\usepackage{microtype}
+\usepackage{caption}
+\captionsetup{font=small,labelfont=bf,justification=justified,singlelinecheck=false,skip=6pt}
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries}{}{0pt}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .4ex}{0.8ex}
+\titlespacing*{\subsection}{0pt}{1.6ex plus .3ex}{0.5ex}
+\renewcommand{\abstractname}{Abstract}
+\setlength{\LTpre}{8pt}\setlength{\LTpost}{10pt}
+\AtBeginEnvironment{longtable}{\small}
+\usepackage{etoolbox}
+\setlength{\emergencystretch}{3em}
+\setlength{\tabcolsep}{5pt}
+\setlength{\LTcapwidth}{\textwidth}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SwaraLM — Raga Retrieval Explorer</title>
+<style>
+  :root { --bg:#0f1115; --card:#181c24; --text:#e8e6e1; --dim:#9a9790;
+          --accent:#e0a458; --good:#4caf7d; --bad:#c05555; --line:#2a2f3a; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:15px/1.55 "Georgia", serif; }
+  .wrap { max-width:880px; margin:0 auto; padding:40px 20px 80px; }
+  h1 { font-size:1.7em; margin:0 0 4px; color:var(--accent); font-weight:normal; }
+  .sub { color:var(--dim); margin-bottom:28px; }
+  .controls { display:flex; gap:14px; flex-wrap:wrap; margin-bottom:24px; }
+  select { background:var(--card); color:var(--text); border:1px solid var(--line);
+           padding:9px 12px; border-radius:8px; font:inherit; max-width:100%; }
+  select#query { flex:1; min-width:260px; }
+  .panel-row { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  @media (max-width:700px){ .panel-row { grid-template-columns:1fr; } }
+  .panel { background:var(--card); border:1px solid var(--line);
+           border-radius:12px; padding:16px 18px; }
+  .panel h3 { margin:0 0 12px; font-size:.95em; letter-spacing:.06em;
+              text-transform:uppercase; color:var(--dim); font-weight:normal; }
+  .hit { display:flex; align-items:baseline; gap:10px; padding:7px 0;
+         border-bottom:1px solid var(--line); }
+  .hit:last-child { border-bottom:none; }
+  .rank { color:var(--dim); width:1.4em; }
+  .sim  { color:var(--dim); font-size:.85em; width:4.2em; }
+  .raga { font-weight:bold; }
+  .raga.match { color:var(--good); }
+  .raga.miss  { color:var(--bad); }
+  .title { color:var(--dim); font-size:.9em; overflow:hidden;
+           text-overflow:ellipsis; white-space:nowrap; flex:1; }
+  .qcard { background:var(--card); border:1px solid var(--accent);
+           border-radius:12px; padding:14px 18px; margin-bottom:22px; }
+  .qcard .raga { color:var(--accent); }
+  .note { color:var(--dim); font-size:.85em; margin-top:26px; }
+  a { color:var(--accent); }
+  .score { font-size:.8em; color:var(--dim); margin-left:auto; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>SwaraLM — Raga Retrieval Explorer</h1>
+  <div class="sub">Query-by-example retrieval over Saraga Carnatic.
+    Pick a recording; compare what different melodic representations retrieve.
+    <span style="color:var(--good)">Green</span> = same raga,
+    <span style="color:var(--bad)">red</span> = different.</div>
+
+  <div class="controls">
+    <select id="query"></select>
+    <select id="repA"></select>
+    <select id="repB"></select>
+  </div>
+
+  <div class="qcard" id="qcard"></div>
+  <div class="panel-row">
+    <div class="panel"><h3 id="hA"></h3><div id="listA"></div></div>
+    <div class="panel"><h3 id="hB"></h3><div id="listB"></div></div>
+  </div>
+
+  <div class="note">
+    Similarities are cosine over precomputed embeddings (no server; everything
+    runs in your browser). Representations: count-based baselines
+    (bag-of-notes, transitions) vs. label-free learned embeddings (LSTM-LM,
+    contrastive). Finding: count baselines win overall — but individual
+    queries show where each representation succeeds and fails. Try a
+    <b>Kamas</b> recording and watch for <b>Kambhoji</b> (same scale,
+    different sanchara). Paper &amp; code:
+    <a href="https://github.com/">github repo</a>.
+  </div>
+</div>
+
+<script>
+let DATA = null;
+const K = 8;
+
+const $ = id => document.getElementById(id);
+
+fetch("demo_data.json").then(r => r.json()).then(d => { DATA = d; init(); });
+
+function init() {
+  const qs = $("query");
+  DATA.recordings.forEach((r, i) => {
+    const o = document.createElement("option");
+    o.value = i;
+    o.textContent = `[${r.raga}] ${r.title}`;
+    qs.appendChild(o);
+  });
+  const reps = Object.keys(DATA.embeddings);
+  [["repA", 0], ["repB", reps.length - 1]].forEach(([id, def]) => {
+    const s = $(id);
+    reps.forEach(name => {
+      const o = document.createElement("option");
+      o.value = name; o.textContent = name;
+      s.appendChild(o);
+    });
+    s.value = reps[def];
+  });
+  // default to first Kamas recording if present (the demo's best story)
+  const kamas = DATA.recordings.findIndex(r => r.raga.toLowerCase() === "kamas");
+  if (kamas >= 0) qs.value = kamas;
+  ["query","repA","repB"].forEach(id => $(id).onchange = render);
+  render();
+}
+
+function cosineTopK(rep, qi) {
+  const E = DATA.embeddings[rep], q = E[qi];
+  const scored = [];
+  for (let i = 0; i < E.length; i++) {
+    if (i === qi) continue;
+    let s = 0;
+    const v = E[i];
+    for (let d = 0; d < q.length; d++) s += q[d] * v[d];
+    scored.push([i, s]);
+  }
+  scored.sort((a, b) => b[1] - a[1]);
+  return scored.slice(0, K);
+}
+
+function renderList(el, hits, qRaga, rep) {
+  el.innerHTML = "";
+  let matches = 0;
+  hits.forEach(([i, s], rank) => {
+    const r = DATA.recordings[i];
+    const same = r.raga.toLowerCase() === qRaga.toLowerCase();
+    if (same) matches++;
+    const div = document.createElement("div");
+    div.className = "hit";
+    div.innerHTML = `<span class="rank">${rank+1}</span>
+      <span class="raga ${same ? "match" : "miss"}">${r.raga}</span>
+      <span class="title">${r.title} — ${r.artist}</span>
+      <span class="sim">${s.toFixed(3)}</span>`;
+    el.appendChild(div);
+  });
+  return matches;
+}
+
+function render() {
+  const qi = +$("query").value;
+  const q = DATA.recordings[qi];
+  $("qcard").innerHTML =
+    `<span class="raga">[${q.raga}]</span> ${q.title} — ${q.artist}`;
+  ["A","B"].forEach(side => {
+    const rep = $("rep"+side).value;
+    const hits = cosineTopK(rep, qi);
+    const m = renderList($("list"+side), hits, q.raga, rep);
+    $("h"+side).textContent = `${rep} — ${m}/${K} same raga`;
+  });
+}
+</script>
+</body>
+</html>

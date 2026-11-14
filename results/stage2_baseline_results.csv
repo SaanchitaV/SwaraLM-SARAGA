@@ -1,0 +1,3 @@
+representation,evaluable_queries,P@1,P@3,P@5,MAP,MRR
+bag_of_notes (strawman),123,0.423,0.29,0.233,0.423,0.519
+transition_matrix (floor),123,0.431,0.32,0.237,0.418,0.547

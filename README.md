@@ -1,115 +1,129 @@
-# RagAllied-SARAGA-Dataset
+# SwaraLM
 
-# Swara-LM: A Self-Supervised Melodic Language Model for Carnatic Retrieval
+**Label-free evaluation of melodic representations for Carnatic raga retrieval.**
 
-Learning the *grammar of Carnatic melody* (sanchara) directly from audio, with no
-raga labels — then using it to search Carnatic music at the phrase level.
+Given a recording, find others in the same raga using melodic content alone, with
+no raga labels used at any point in training. Seven representations are compared
+under one protocol on the Saraga Carnatic collection.
 
----
-
-## The one-paragraph idea
-
-A language model learns English by predicting the next word in raw text; to win
-that game it must internalize grammar and meaning, with nothing labeled. **This
-project does the same for Carnatic music**: it turns recordings into sequences of
-**swaras** (notes relative to the tonic) and trains a model to predict melodic
-continuations. To succeed, the model must learn **sanchara** — the movement
-grammar that actually defines a raga — *without ever being told the raga*. The
-learned representations then power a **dense retrieval** system: embed any melodic
-phrase, search for similar phrases, and evaluate whether the model separates
-**allied ragas** (same notes, different movement) where naive note-matching fails.
+Paper: `docs/SwaraLM_paper.pdf` (source in `docs/paper/`) · Zenodo DOI: _pending_
 
 ---
 
-## Why this design
+## Headline result
 
-The dataset (Saraga Carnatic, 197 recordings) is **small and long-tailed**: most
-ragas have 1–3 recordings, too few to *supervise* a learned model per raga. But it
-has **100% tonic + pitch coverage** — abundant raw melodic signal.
+At this data scale, count-based representations outperform every learned
+representation tried, in aggregate and within the allied-raga stratum.
 
-So the ML is moved **off** the scarce raga labels and **onto** the abundant pitch
-data, via self-supervision. Raga labels are used only for a small **downstream
-evaluation**, not for training. The small dataset stops being a blocker.
+| Representation | P@1 | P@3 | P@5 | MAP | MRR |
+|---|---|---|---|---|---|
+| Swara-transition matrix | **0.431** | 0.320 | 0.237 | 0.418 | **0.547** |
+| Pitch-class histogram | 0.423 | 0.290 | 0.233 | **0.423** | 0.519 |
+| LSTM language model | 0.369 ± 0.016 | 0.282 | 0.229 | 0.405 | 0.501 |
+| Contrastive (InfoNCE) | 0.366 ± 0.025 | 0.298 | 0.237 | 0.415 | 0.524 |
+| Late interaction, warm-start | 0.317 | 0.263 | 0.218 | 0.352 | 0.441 |
+| Late interaction, trained | 0.301 | 0.236 | 0.189 | 0.321 | 0.417 |
+| Transformer language model | 0.276 | 0.201 | 0.164 | 0.276 | 0.384 |
+| BM25 | 0.024 | 0.022 | 0.023 | 0.046 | 0.074 |
 
----
+176 labelled recordings, 95 ragas, 123 evaluable queries. For the LSTM and
+contrastive rows, P@1 is the mean ± sd over five held-out-artist splits; their
+other columns come from the development runs whose embeddings are in `models/`
+(P@1 0.398 and 0.423). Transformer and late-interaction rows are single runs.
 
-## Two components
+Five supporting findings:
 
-### A — Swara Language Model  *(NLP / ML core; self-supervised)*
-- Convert every recording → tonic-normalized **swara sequence** ("melodic sentence").
-- Train a sequence model (Transformer / RNN) on **next-swara prediction** (and/or
-  masked-swara modeling).
-- **No labels needed.** The training signal is the melody itself.
-- Output: contextual **phrase embeddings** that encode sanchara.
+- **Single-run parity is not reproduced.** Contrastive fine-tuning matched the
+  histogram in one development run (0.423). Across five artist splits it
+  averaged 0.366, and no seed reached the development figure. The harness used
+  a more conservative contrastive configuration than the development run, and
+  nominally identical LSTM runs differ by up to 0.04, so single runs at this
+  scale are not to be trusted.
+- **Pooling was not the bottleneck.** Late interaction removes mean-pooling
+  entirely, trained cleanly (val loss 17.1 → 1.9), and retrieved *worse* than
+  the pooled model it was built from.
+- **BM25 collapses structurally.** All twelve pitch positions occur in all 176
+  recordings, so document frequency is uniform, IDF weights nothing, every
+  query is the same twelve terms, and the ranking does not depend on the query.
+- **Order-sensitive representations are fragile to extraction noise.** Raga-blind
+  denoising (v1 → v2) improved the histogram by a third (0.317 → 0.423) and
+  roughly doubled the transition matrix (0.220 → 0.431), the LSTM (0.179 →
+  0.369) and the Transformer (0.154 → 0.276). The v1 baseline aggregates are
+  reconstructed from the stratified v1 run.
+- **Perplexity moves against retrieval.** The same denoising *raised* LM
+  perplexity, because the removed gamaka jitter was the most predictable content.
 
-### B — Dense Melodic Retrieval  *(IR; uses A's embeddings)*
-- Embed all phrases with A's learned representation.
-- Index them in a **vector database** (FAISS / HNSW) for nearest-neighbor search.
-- Query-by-phrase: given a melodic phrase, retrieve the most similar phrases.
-- **Evaluation** (labels re-enter here, only for the 20 populated ragas):
-  does a query phrase retrieve *same-raga* phrases and reject *allied-raga* ones?
+## Phrase sub-study
 
----
+On the 94 phrase-annotated recordings (22 ragas, 60 queries), term weighting
+over expert phrase transcriptions beats svara counting on the same data:
 
-## Pipeline stages
+| Representation | P@1 (95% CI) | MAP | MRR |
+|---|---|---|---|
+| Svara counts | 0.150 [0.07, 0.25] | 0.212 | 0.276 |
+| Phrase VSM, exact | 0.333 [0.22, 0.45] | 0.291 | 0.391 |
+| Phrase VSM, approx (τ=0.85) | **0.450** [0.33, 0.58] | **0.406** | **0.519** |
 
-| Stage | What happens | Needs labels? |
-|---|---|---|
-| 0. Census | audit raga/artist/annotation depth | no |
-| 1. Feature extraction | pitch → tonic-relative → swara sequences | no |
-| 2. Tokenization | swara sequences → model tokens | no |
-| 3. Pretrain (A) | self-supervised swara LM | **no** |
-| 4. Embed + index (B) | phrase embeddings → vector index | no |
-| 5. Retrieval | query-by-phrase nearest-neighbor search | no |
-| 6. Evaluation | same-raga retrieval & allied-raga separation | yes (eval only) |
-
----
-
-## Anti-cheating / validity measures
-
-- **Tonic-relative** swara mapping — removes the tonic confound (uses Saraga's
-  100% tonic annotations).
-- **Per-recording normalization** — suppresses singer/mic signatures.
-- **Held-out-artist evaluation** — split so that scoring well by memorizing a
-  singer instead of learning grammar shows up as failure.
-- **Baselines to beat:** (i) swara-presence bag-of-notes vector, (ii) swara
-  **transition** (Markov) vector. The learned LM must beat both on allied-raga
-  retrieval, or the negative result is itself reported.
-
----
-
-## Evaluation
-
-- **Task:** phrase → retrieve same-raga phrases (query-by-example).
-- **Hard cases:** allied ragas present in the data (e.g. the Saveri / Gaula /
-  Ritigaula cluster), reported **per category** (scale-identical, same-janaka,
-  gamaka-only).
-- **Metrics:** Precision@k, MAP, MRR (nDCG if graded relevance defined).
-- **Comparison:** learned LM vs. transition floor vs. bag-of-notes baseline.
+IDF is meaningful over phrases because phrases are rare and raga-specific
+(within-raga phrase-set Jaccard 0.018 vs 0.000 across ragas), the exact mirror
+of why it failed over svaras. **The unit of representation matters more than the
+sophistication of the model.**
 
 ---
 
-## Tech stack
+## Layout
 
-| Layer | Tools |
-|---|---|
-| Data | Saraga Carnatic (Kaggle mirror); Dunya/CompMusic for scale-up |
-| Loading / features | file-parsing + `compiam` (tonic, pitch) |
-| Sequence modeling | PyTorch (Transformer / RNN) |
-| Retrieval | FAISS or hnswlib (dense ANN) |
-| Analysis | pandas, numpy |
+```
+src/      pipeline, stage 0 through 9, plus the phrase sub-study
+docs/     per-stage writeups and the paper
+results/  all result CSVs and run logs
+data/     raga theory table (95 ragas, directional aro/avaro, confidence flags)
+models/   trained checkpoints and embeddings
+demo/     static retrieval explorer (GitHub Pages)
+notebooks/ original exploratory notebooks and the first project plan
+```
 
----
+## Reproducing
 
-## Roadmap
+```bash
+pip install numpy pandas torch scikit-learn hnswlib mirdata rank_bm25 openpyxl
+```
 
-- [x] Census — inventory, depth, annotation coverage
-- [x] Feature extraction — swara sequences from all 197 recordings
-- [x] Baselines — bag-of-notes + transition vectors
-- [ ] Swara LM (A) — self-supervised pretraining
-- [ ] Dense retrieval (B) — embed, index, query
-- [ ] Evaluation — same-raga retrieval, allied-raga separation, per category
-- [ ] (Stretch) Scale up with Dunya data; fine-tune for allied-raga discrimination
+1. `src/stage0_census_kaggle.py` — corpus census
+2. `src/stage1_extract_sequences.py` — f0 → tonic-normalised swara sequences
+3. `src/stage2_baselines.py` — histogram and transition matrix
+4. `src/stage3_confusion_strata.py` — confusions and allied stratification
+5. `src/stage4a_lstm_lm.py`, `src/stage5_contrastive.py` — learned models
+6. `src/bm25_baseline.py`, `src/ndcg_evaluation.py`, `src/stage9_colbert_colab.py`
+7. `src/phrase_probe.py` → `phrase_vsm.py` → `phrase_vsm_approx.py` → `phrase_vsm_robust.py`
 
----
+Seeds: 42, 7, 123, 2024, 31415. Every experiment reads one frozen
+`swara_sequences.jsonl`; stratified metrics aggregate exactly to overall metrics.
 
+> **Note:** the frozen `data/swara_sequences_v2_FROZEN.jsonl` is not yet in this
+> repository. Add it before relying on the reproduction steps.
+
+## Method note
+
+All sequence cleaning is **raga-blind**: median smoothing and a minimum dwell,
+both functions of the signal alone. Correcting extracted notes against a raga's
+theoretical scale would inject the label into the input of models meant to
+recover it, and would erase the gamaka that distinguishes allied ragas. The
+raga theory table is used only for evaluation stratification and graded
+relevance, never to modify a sequence.
+
+## Data
+
+Saraga Carnatic v1.5 (Bozkurt, Srinivasamurthy, Gulati, Serra), Zenodo
+DOI [10.5281/zenodo.4301737](https://doi.org/10.5281/zenodo.4301737), accessed
+via `mirdata` with checksum verification.
+
+## Licences
+
+- Code: MIT (`LICENSE`)
+- Derived data and the raga theory table: CC BY-NC-SA 4.0 (`LICENSE-DATA`),
+  inherited from Saraga Carnatic's share-alike terms.
+
+## Citation
+
+_Zenodo DOI pending. Add the BibTeX block here once minted._
