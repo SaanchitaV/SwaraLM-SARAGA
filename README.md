@@ -6,7 +6,9 @@ Given a recording, find others in the same raga using melodic content alone, wit
 no raga labels used at any point in training. Seven representations are compared
 under one protocol on the Saraga Carnatic collection.
 
-Paper: `docs/SwaraLM_paper.pdf` (source in `docs/paper/`) · Zenodo DOI: _pending_
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24229237.svg)](https://doi.org/10.5281/zenodo.24229237)
+
+Paper: [Counting Still Wins: A Label-Free Evaluation of Melodic Representations for Carnatic Raga Retrieval](https://doi.org/10.5281/zenodo.24229237) (Zenodo preprint). A copy is in `docs/SwaraLM_paper.pdf`, with its source in `docs/paper/`.
 
 ---
 
@@ -126,4 +128,20 @@ via `mirdata` with checksum verification.
 
 ## Citation
 
-_Zenodo DOI pending. Add the BibTeX block here once minted._
+If you use this code, the dataset or the results, please cite the paper:
+
+> Iyer, S. V. (2026). *Counting Still Wins: A Label-Free Evaluation of Melodic
+> Representations for Carnatic Raga Retrieval*. Zenodo.
+> https://doi.org/10.5281/zenodo.24229237
+
+```bibtex
+@misc{iyer2026counting,
+  author    = {Iyer, Saanchita V.},
+  title     = {Counting Still Wins: A Label-Free Evaluation of Melodic
+               Representations for Carnatic Raga Retrieval},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.24229237},
+  url       = {https://doi.org/10.5281/zenodo.24229237}
+}
+```

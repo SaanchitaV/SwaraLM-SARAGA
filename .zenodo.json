@@ -3,14 +3,30 @@
   "description": "Code, frozen symbolic dataset, raga theory table, trained checkpoints, embeddings and result files for the paper \"Counting Still Wins: A Label-Free Evaluation of Melodic Representations for Carnatic Raga Retrieval\". Seven representations (pitch-class histogram, svara-transition matrix, BM25, LSTM and Transformer language models, contrastive fine-tuning, ColBERT-style late interaction) are compared for query-by-example raga retrieval on Saraga Carnatic, with a phrase-level sub-study. Code is MIT licensed; the derived symbolic dataset and the raga theory table are CC BY-NC-SA 4.0, inherited from Saraga Carnatic.",
   "upload_type": "software",
   "creators": [
-    { "name": "Iyer, Saanchita V." }
+    {
+      "name": "Iyer, Saanchita V."
+    }
   ],
   "license": "MIT",
   "keywords": [
-    "raga retrieval", "Carnatic music", "music information retrieval", "Saraga",
-    "query by example", "symbolic music", "evaluation"
+    "raga retrieval",
+    "Carnatic music",
+    "music information retrieval",
+    "Saraga",
+    "query by example",
+    "symbolic music",
+    "evaluation"
   ],
   "related_identifiers": [
-    { "identifier": "10.5281/zenodo.4301737", "relation": "isDerivedFrom", "scheme": "doi" }
+    {
+      "identifier": "10.5281/zenodo.24229237",
+      "relation": "isSupplementTo",
+      "scheme": "doi"
+    },
+    {
+      "identifier": "10.5281/zenodo.4301737",
+      "relation": "isDerivedFrom",
+      "scheme": "doi"
+    }
   ]
 }
