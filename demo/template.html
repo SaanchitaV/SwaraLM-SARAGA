@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SwaraLM Raga Explorer</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one working column. Query on top, results below, single or side-by-side. */
+:root {
+  --bg: #f1f0f5; --surface: #ffffff; --surface-2: #e9e7f0; --ink: #1c1a26; --muted: #605c71;
+  --faint: #8a85a0; --line: #d9d5e4; --accent: #a3471d; --accent-soft: #f6e5da;
+  --gold: #7d5f0c; --gold-soft: #f6eecf; --good: #1c6a4a; --good-soft: #d8ecdf;
+  --display: "Fraunces", Georgia, serif; --body: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #131220; --surface: #1c1a2b; --surface-2: #252236; --ink: #ece9f3; --muted: #a09bb2;
+    --faint: #7a7590; --line: #322e45; --accent: #e8864f; --accent-soft: #3a2418;
+    --gold: #d9b256; --gold-soft: #332b14; --good: #55bb8c; --good-soft: #15301f;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+.shell { max-width: 960px; margin: 0 auto; padding: 36px max(16px, env(safe-area-inset-right, 0px)) 64px max(16px, env(safe-area-inset-left, 0px)); }
+.eyebrow { font: 500 11px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+h1 { font: 700 clamp(2rem, 6vw, 2.8rem)/1.04 var(--display); letter-spacing: -.02em; margin: 0 0 12px; text-wrap: balance; }
+h2 { font: 700 1.25rem/1.2 var(--display); margin: 0 0 10px; }
+.lede { color: var(--muted); max-width: 64ch; margin: 0 0 8px; }
+.links { display: flex; flex-wrap: wrap; gap: 14px; font-size: .9rem; margin: 10px 0 28px; }
+a { color: var(--accent); }
+.mono { font-family: var(--mono); }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; }
+.label { font: 500 11px/1 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+.pick { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; }
+select, button { font: 500 .92rem var(--body); color: var(--ink); background: var(--surface-2); border: 1px solid var(--line); border-radius: 9px; padding: 9px 12px; }
+select { width: 100%; min-width: 0; }
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+button:focus-visible, select:focus-visible, .hit:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; align-items: center; }
+.chips span.t { font-size: .82rem; color: var(--muted); margin-right: 2px; }
+.chip { font-size: .82rem; padding: 4px 10px; border-radius: 999px; }
+
+.query { margin-top: 16px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: start; }
+.qraga { font: 700 1.6rem/1.1 var(--display); color: var(--accent); }
+.qmeta { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+.scale { margin-top: 10px; display: grid; gap: 4px; font: .8rem/1.4 var(--mono); }
+.scale b { font-weight: 500; color: var(--muted); display: inline-block; width: 7.5em; }
+.qstats { text-align: right; font-size: .85rem; color: var(--muted); }
+.qstats strong { display: block; font: 500 1.6rem/1 var(--mono); color: var(--ink); }
+
+.modes { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0 12px; align-items: center; }
+.modes button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.modes .sep { flex: 1; }
+.cols { display: grid; gap: 14px; grid-template-columns: 1fr; }
+.cols.two { grid-template-columns: 1fr; }
+@media (min-width: 760px) { .cols.two { grid-template-columns: 1fr 1fr; } }
+.cols > * { min-width: 0; }
+.colhead { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; }
+.colhead h2 { margin: 0; }
+.colhead select { width: auto; padding: 6px 10px; }
+.score { font-size: .86rem; color: var(--muted); margin: 0 0 10px; }
+.score strong { color: var(--ink); }
+
+.hit { display: grid; grid-template-columns: 1.6em minmax(0, 1fr) 4.6em; gap: 10px; align-items: center; padding: 9px 8px; border-radius: 9px; cursor: pointer; border: 1px solid transparent; }
+.hit:hover { background: var(--surface-2); }
+.rank { font: .8rem var(--mono); color: var(--faint); text-align: right; }
+.who { min-width: 0; }
+.who .r { font-weight: 700; }
+.who .s { font-size: .82rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pill { font: 500 10px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: 3px 6px; border-radius: 5px; margin-left: 6px; vertical-align: 2px; }
+.hit.same { background: var(--good-soft); }
+.hit.same .r { color: var(--good); }
+.hit.same .pill { background: var(--good); color: var(--surface); }
+.hit.allied .pill { background: var(--gold-soft); color: var(--gold); border: 1px solid var(--gold); }
+.sim { font: .78rem var(--mono); color: var(--muted); text-align: right; }
+.sim i { display: block; height: 4px; border-radius: 2px; background: var(--accent); margin-top: 4px; opacity: .55; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-size: .82rem; color: var(--muted); margin: 6px 0 0; }
+.dot { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+.overall { margin-top: 28px; }
+.bars { display: grid; gap: 8px; margin-top: 12px; }
+.bar { display: grid; grid-template-columns: minmax(0, 13em) minmax(0, 1fr) 3.4em; gap: 10px; align-items: center; font-size: .88rem; }
+.bar .track { height: 10px; background: var(--surface-2); border-radius: 5px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--accent); border-radius: 5px; }
+.bar.count .fill { background: var(--good); }
+.bar.ref .fill { background: repeating-linear-gradient(45deg, var(--good) 0 4px, transparent 4px 8px); }
+.bar .v { font: .84rem var(--mono); text-align: right; font-variant-numeric: tabular-nums; }
+.note { font-size: .84rem; color: var(--muted); margin: 12px 0 0; max-width: 72ch; }
+footer { margin-top: 36px; font-size: .82rem; color: var(--faint); border-top: 1px solid var(--line); padding-top: 16px; }
+@media (max-width: 520px) { .query { grid-template-columns: 1fr; } .qstats { text-align: left; } .bar { grid-template-columns: minmax(0, 8em) minmax(0, 1fr) 3.4em; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="shell">
+  <p class="eyebrow">SwaraLM · Saraga Carnatic · 176 recordings · 95 ragas</p>
+  <h1>Raga retrieval explorer</h1>
+  <p class="lede">Pick a recording. Each model turns every recording into a vector and ranks the rest by similarity. Green rows are the same raga, gold rows are allied ragas that share most of the query's scale. Click any result to make it the next query.</p>
+  <div class="links">
+    <a href="https://doi.org/10.5281/zenodo.24229237">Paper (Zenodo)</a>
+    <a href="https://github.com/SaanchitaV/SwaraLM-SARAGA">Code and data</a>
+  </div>
+
+  <section class="panel">
+    <label class="label" for="q">Query recording</label>
+    <div class="pick">
+      <select id="q"></select>
+      <button id="rand" type="button">Random</button>
+    </div>
+    <div class="chips" id="tries"><span class="t">Try:</span></div>
+    <div class="query">
+      <div>
+        <div class="qraga" id="qr"></div>
+        <div class="qmeta" id="qm"></div>
+        <div class="scale" id="qs"></div>
+      </div>
+      <div class="qstats"><strong id="qn"></strong><span id="qnl"></span></div>
+    </div>
+  </section>
+
+  <div class="modes" id="modes">
+    <span class="label" style="margin:0 6px 0 0">Model</span>
+    <span class="sep"></span>
+    <button id="cmp" type="button" aria-pressed="false">Compare two</button>
+  </div>
+
+  <div class="cols" id="cols"></div>
+  <div class="legend">
+    <span><i class="dot" style="background:var(--good)"></i>Same raga</span>
+    <span><i class="dot" style="background:var(--gold-soft);border:1px solid var(--gold)"></i>Allied raga (scale overlap of at least 0.8)</span>
+    <span><i class="dot" style="background:var(--surface-2);border:1px solid var(--line)"></i>Different raga</span>
+  </div>
+
+  <section class="panel overall">
+    <h2>How often is the top result right?</h2>
+    <p class="note" style="margin-top:0">P@1 over the 123 recordings whose raga appears at least twice, computed live in this page from the embeddings it ships with.</p>
+    <div class="bars" id="bars"></div>
+    <p class="note" id="refnote"></p>
+  </section>
+
+  <footer>Everything runs in your browser from data baked into this file. Built by <span class="mono">src/make_demo.py</span>. Raga theory: the repository's 95-raga arohana/avarohana table. Audio and annotations: Saraga Carnatic (CC BY-NC-SA 4.0).</footer>
+</div>
+
+<script>
+const DATA = /*__SWARALM_DATA__*/null;
+(function () {
+  "use strict";
+  const $ = id => document.getElementById(id);
+  const R = DATA.recordings, REPS = DATA.reps, NAMES = Object.keys(REPS);
+  const K = 8;
+  const count = {};
+  R.forEach(r => { count[r.k] = (count[r.k] || 0) + 1; });
+  const isAllied = (a, b) => (DATA.allied[a] || []).includes(b);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  const state = { q: 0, compare: false, a: NAMES[0], b: NAMES[NAMES.length - 1] };
+
+  function rank(rep, qi) {
+    const E = REPS[rep].E, q = E[qi], out = [];
+    for (let i = 0; i < E.length; i++) {
+      if (i === qi) continue;
+      let s = 0; const v = E[i];
+      for (let d = 0; d < q.length; d++) s += q[d] * v[d];
+      out.push([i, s]);
+    }
+    return out.sort((x, y) => y[1] - x[1]);
+  }
+
+  // query picker, grouped by raga
+  const byRaga = {};
+  R.forEach((r, i) => (byRaga[r.r] = byRaga[r.r] || []).push(i));
+  Object.keys(byRaga).sort().forEach(rg => {
+    const g = document.createElement("optgroup");
+    g.label = rg + "  (" + byRaga[rg].length + ")";
+    byRaga[rg].forEach(i => {
+      const o = document.createElement("option");
+      o.value = i; o.textContent = R[i].t + " · " + R[i].a;
+      g.appendChild(o);
+    });
+    $("q").appendChild(g);
+  });
+  $("q").onchange = () => setQuery(+$("q").value);
+  const evaluable = R.map((r, i) => i).filter(i => count[R[i].k] >= 2);
+  $("rand").onclick = () => setQuery(evaluable[Math.floor(Math.random() * evaluable.length)]);
+
+  // quick tries: allied-raga stories
+  [["Kamas", "kamas"], ["Kambhoji", "kambhoji"], ["Harikambhoji", "harikambhoji"], ["Todi", "todi"], ["Kalyani", "kalyani"]].forEach(([lbl, k]) => {
+    const i = R.findIndex(r => r.k === k);
+    if (i < 0) return;
+    const b = document.createElement("button");
+    b.className = "chip"; b.type = "button"; b.textContent = lbl;
+    b.onclick = () => setQuery(i);
+    $("tries").appendChild(b);
+  });
+
+  // model buttons
+  NAMES.forEach(n => {
+    const b = document.createElement("button");
+    b.type = "button"; b.textContent = REPS[n].label; b.dataset.rep = n;
+    b.onclick = () => { state.a = n; render(); };
+    $("modes").insertBefore(b, $("modes").querySelector(".sep"));
+  });
+  $("cmp").onclick = () => { state.compare = !state.compare; if (state.compare && state.b === state.a) state.b = NAMES.find(n => n !== state.a); render(); };
+
+  function setQuery(i) { state.q = i; $("q").value = i; render(); }
+
+  function column(rep, selectable) {
+    const qi = state.q, qk = R[qi].k, hits = rank(rep, qi).slice(0, K);
+    const top = hits[0][1], bottom = hits[hits.length - 1][1];
+    const same = hits.filter(([i]) => R[i].k === qk).length;
+    const first = rank(rep, qi).findIndex(([i]) => R[i].k === qk);
+    const box = document.createElement("div");
+    box.className = "panel";
+    let head = '<div class="colhead"><h2>' + esc(REPS[rep].label) + "</h2>";
+    if (selectable) {
+      head += '<select aria-label="Second model">' + NAMES.map(n => '<option value="' + n + '"' + (n === rep ? " selected" : "") + ">" + esc(REPS[n].label) + "</option>").join("") + "</select>";
+    }
+    head += "</div>";
+    let score;
+    if (count[qk] < 2) score = "This is the only recording of " + esc(R[qi].r) + ", so nothing can be right. Watch where the gold rows land.";
+    else score = "<strong>" + same + " of " + K + "</strong> top results are " + esc(R[qi].r) + (first >= 0 ? " · first correct at rank <strong>" + (first + 1) + "</strong>" : "");
+    box.innerHTML = head + '<p class="score">' + score + "</p>";
+    hits.forEach(([i, s], n) => {
+      const r = R[i], cls = r.k === qk ? "same" : (isAllied(qk, r.k) ? "allied" : "");
+      const pill = cls === "same" ? '<span class="pill">same</span>' : cls === "allied" ? '<span class="pill">allied</span>' : "";
+      const w = top === bottom ? 100 : Math.max(8, 100 * (s - bottom) / (top - bottom));
+      const el = document.createElement("div");
+      el.className = "hit " + cls; el.tabIndex = 0; el.setAttribute("role", "button");
+      el.title = "Use this recording as the query";
+      el.innerHTML = '<span class="rank">' + (n + 1) + '</span><span class="who"><span class="r">' + esc(r.r) + "</span>" + pill +
+        '<div class="s">' + esc(r.t) + " · " + esc(r.a) + '</div></span><span class="sim">' + s.toFixed(3) + '<i style="width:' + w + '%"></i></span>';
+      el.onclick = () => setQuery(i);
+      el.onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setQuery(i); } };
+      box.appendChild(el);
+    });
+    if (selectable) box.querySelector("select").onchange = e => { state.b = e.target.value; render(); };
+    return box;
+  }
+
+  function render() {
+    const q = R[state.q];
+    $("qr").textContent = q.r;
+    $("qm").textContent = q.t + " · " + q.a;
+    const th = DATA.theory[q.k];
+    const al = (DATA.allied[q.k] || []).map(k => R.find(r => r.k === k).r);
+    $("qs").innerHTML = (th ? "<div><b>arohana</b>" + esc(th.aro) + "</div><div><b>avarohana</b>" + esc(th.ava) + "</div>" : "") +
+      "<div><b>allied here</b>" + (al.length ? esc(al.slice(0, 6).join(", ")) + (al.length > 6 ? " and " + (al.length - 6) + " more" : "") : "none") + "</div>";
+    $("qn").textContent = count[q.k] - 1;
+    $("qnl").textContent = "other " + q.r + (count[q.k] - 1 === 1 ? " recording" : " recordings");
+    document.querySelectorAll("#modes button[data-rep]").forEach(b => b.setAttribute("aria-pressed", b.dataset.rep === state.a ? "true" : "false"));
+    $("cmp").setAttribute("aria-pressed", state.compare ? "true" : "false");
+    const cols = $("cols");
+    cols.className = "cols" + (state.compare ? " two" : "");
+    cols.innerHTML = "";
+    cols.appendChild(column(state.a, false));
+    if (state.compare) cols.appendChild(column(state.b, true));
+  }
+
+  // overall P@1, computed here
+  const PAPER = { histogram: ["Pitch-class histogram", 0.423], transitions: ["Transition matrix", 0.431] };
+  const rows = NAMES.map(n => {
+    const hit = evaluable.filter(qi => R[rank(n, qi)[0][0]].k === R[qi].k).length;
+    return { label: REPS[n].label, v: hit / evaluable.length, kind: REPS[n].kind };
+  });
+  const missing = Object.keys(PAPER).filter(k => !REPS[k]);
+  missing.forEach(k => rows.push({ label: PAPER[k][0] + " (paper)", v: PAPER[k][1], kind: "ref" }));
+  rows.sort((a, b) => b.v - a.v);
+  $("bars").innerHTML = rows.map(r => '<div class="bar ' + r.kind + '"><span>' + esc(r.label) + '</span><span class="track"><span class="fill" style="display:block;width:' + (r.v / 0.5 * 100) + '%"></span></span><span class="v">' + r.v.toFixed(3) + "</span></div>").join("");
+  $("refnote").textContent = (missing.length
+    ? "Striped bars are the two counting methods, shown at their values from the paper: they need the frozen swara sequences, which this copy of the explorer does not include. "
+    : "Green bars are the counting methods; the rest are learned. ") +
+    "The LSTM and contrastive embeddings here are single development runs; the paper's five-seed means are 0.369 and 0.366. Scale runs to 0.5.";
+
+  setQuery(Math.max(0, R.findIndex(r => r.k === "kamas")));
+})();
+</script>
+</body>
+</html>

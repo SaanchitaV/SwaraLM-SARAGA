@@ -81,7 +81,7 @@ docs/     per-stage writeups and the paper
 results/  all result CSVs and run logs
 data/     raga theory table (95 ragas, directional aro/avaro, confidence flags)
 models/   trained checkpoints and embeddings
-demo/     static retrieval explorer (GitHub Pages)
+demo/     retrieval explorer: open demo/index.html in a browser (built by src/make_demo.py)
 notebooks/ original exploratory notebooks and the first project plan
 ```
 
